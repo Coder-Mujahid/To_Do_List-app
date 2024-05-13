@@ -1,5 +1,4 @@
 import './App.css';
-
 import { useState } from 'react';
 
 const App = () => {
@@ -31,19 +30,22 @@ const App = () => {
 
   return (
     <div className='w-11/12 m-auto text-[#000000]'>
-      <div className="container flex flex-col gap-3 p-4 items-center overflow-hidden mx-auto w-full md:max-w-md mt-8 bg-[#CDE8E5] rounded-md">
-        <h1 className="md:text-3xl text-xl py-2 font-semibold flex w-full justify-center items-center gap-3"> <img className='md:w-10 w-8' src="/public/img/to-do-list.png" alt="" />To-Do List App</h1>
+      <div className="container flex flex-col gap-3 p-4 items-center overflow-hidden mx-auto w-full md:max-w-md mt-8 bg-[#7AB2B2] rounded-md">
+        <h1 className="md:text-3xl text-xl py-2 font-semibold flex w-full justify-center items-center gap-3">
+          <img className='md:w-10 w-8' src="/public/img/to-do-list.png" alt="" />
+          To-Do List App
+        </h1>
         <form onSubmit={handleSubmit} className="mb-4 flex flex-col items-center gap-3 w-full">
           <input
             type="text"
             placeholder="Add a new task..."
             value={newTask}
             onChange={handleChange}
-            className=" border-none bg-[#EEF7FF] font-medium text-[#000000] text-lg rounded px-4 py-2 w-full outline-none"
+            className="border-none shadow-sm shadow-slate-400 bg-[#EEF7FF] font-medium text-[#000000] text-lg rounded px-4 py-2 w-full outline-none"
           />
           <button
             type="submit"
-            className="bg-[#4D869C] text-[#000000] text-lg font-medium rounded px-4 py-2 w-full"
+            className="bg-[#4D869C] shadow-sm shadow-slate-400 text-[#000000] text-lg font-medium rounded px-4 py-2 w-full"
           >
             Add to Shortlist
           </button>
@@ -52,22 +54,21 @@ const App = () => {
           {tasks.map((task) => (
             <li
               key={task.id}
-              className={`flex items-center gap-2 w-full h-auto justify-between border border-gray-300 rounded p-2 mb-2 ${
-                task.completed ? 'bg-gray-200' : ''
+              className={`flex items-center gap-2 w-full shadow-sm shadow-slate-400 h-auto justify-between border border-[#7AB2B2] rounded-md p-2 mb-2 ${
+                task.completed ? 'bg-gray-200' : 'bg-[#CDE8E5]'
               }`}
             >
-              <span
-                onClick={() => toggleTaskCompletion(task.id)}
-                className={`cursor-pointer text-wrap basis-11/12 ${task.completed ? 'line-through' : 'animate-pulse'}`}
-              >
+              <span className={`cursor-pointer text-ellipsis overflow-hidden basis-10/12 ${task.completed ? 'line-through' : 'animate-pulse'}`}>
                 {task.text}
               </span>
-              <button
-                onClick={() => deleteTask(task.id)}
-                className="text-red-500 basis-1/12 flex justify-end"
-              >
-                <img className='md:w-6 w-4' src="/public/img/delete.png" alt="" />
-              </button>
+              <div className='flex flex-row justify-center gap-1 basis-2/12'>
+                <button onClick={() => toggleTaskCompletion(task.id)}>
+                  <img className='md:w-6 w-4' src={task.completed ? "/public/img/checkbox.png" : "/public/img/blank-check-box (1).png"} alt="icon" />
+                </button>
+                <button onClick={() => deleteTask(task.id)} className="text-red-500">
+                  <img className='md:w-6 w-4' src="/public/img/delete.png" alt="" />
+                </button>
+              </div>
             </li>
           ))}
         </ul>
