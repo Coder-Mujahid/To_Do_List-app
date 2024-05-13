@@ -33,8 +33,8 @@ const App = () => {
 
   return (
    <div className='w-11/12 m-auto text-[#4D869C]'>
-     <div className="container flex flex-col gap-3 p-4 items-center  mx-auto w-full md:max-w-md mt-8 bg-[#CDE8E5] rounded-md">
-      <h1 className="md:text-3xl text-xl font-semibold flex w-full justify-center items-center gap-3"> <img className='md:w-10 w-8' src="/public/img/to-do-list.png" alt="" />To-Do List App</h1>
+     <div className="container flex flex-col gap-3 p-4 items-center overflow-hidden mx-auto w-full md:max-w-md mt-8 bg-[#CDE8E5] rounded-md">
+      <h1 className="md:text-3xl text-xl py-2 font-semibold flex w-full justify-center items-center gap-3"> <img className='md:w-10 w-8' src="/public/img/to-do-list.png" alt="" />To-Do List App</h1>
       <form onSubmit={handleSubmit} className="mb-4 flex flex-col items-center gap-3 w-full">
         <input
           type="text"
@@ -50,29 +50,30 @@ const App = () => {
           Add to Shortlist
         </button>
       </form>
-      <ul>
-        {tasks.map((task) => (
-          <li
-            key={task.id}
-            className={`flex items-center justify-between border border-gray-300 rounded px-4 py-2 mb-2 ${
-              task.completed ? 'bg-gray-200' : ''
-            }`}
-          >
-            <span
-              onClick={() => toggleTaskCompletion(task.id)}
-              className={`cursor-pointer ${task.completed ? 'line-through' : ''}`}
-            >
-              {task.text}
-            </span>
-            <button
-              onClick={() => deleteTask(task.id)}
-              className="text-red-500"
-            >
-              X
-            </button>
-          </li>
-        ))}
-      </ul>
+      <ul className=' flex flex-col items-center w-full h-auto'>
+  {tasks.map((task) => (
+    <li
+      key={task.id}
+      className={`flex items-center gap-2 text-ellipsis w-full h-auto justify-between border border-gray-300 rounded px-4 py-2 mb-2 ${
+        task.completed ? 'bg-gray-200' : ''
+      }`}
+    >
+      <span
+        onClick={() => toggleTaskCompletion(task.id)}
+        className={`cursor-pointer ${task.completed ? 'line-through' : ''}`}
+      >
+        {task.text}
+      </span>
+      <button
+        onClick={() => deleteTask(task.id)}
+        className="text-red-500"
+      >
+       <img className='md:w-6 w-4' src="/public/img/delete.png" alt="" />
+      </button>
+    </li>
+  ))}
+</ul>
+
     </div>
    </div>
   );
