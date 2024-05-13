@@ -34,20 +34,20 @@ const App = () => {
   return (
    <div className='w-11/12 m-auto text-[#4D869C]'>
      <div className="container flex flex-col gap-3 p-4 items-center  mx-auto w-full md:max-w-md mt-8 bg-[#CDE8E5] rounded-md">
-      <h1 className="text-3xl font-semibold flex w-full justify-center items-center gap-3"> <img className='w-10' src="/public/img/to-do-list.png" alt="" />To-Do List</h1>
+      <h1 className="md:text-3xl text-xl font-semibold flex w-full justify-center items-center gap-3"> <img className='md:w-10 w-8' src="/public/img/to-do-list.png" alt="" />To-Do List App</h1>
       <form onSubmit={handleSubmit} className="mb-4 flex flex-col items-center gap-3 w-full">
         <input
           type="text"
           placeholder="Add a new task..."
           value={newTask}
           onChange={handleChange}
-          className="border border-gray-300 rounded px-4 py-2 w-full outline-none"
+          className=" border-none bg-[#EEF7FF] font-normal text-lg rounded px-4 py-2 w-full outline-none"
         />
         <button
           type="submit"
-          className="bg-blue-500 text-white rounded px-4 py-2 w-full"
+          className="bg-[#4D869C] text-white text-lg font-medium rounded px-4 py-2 w-full"
         >
-          Add
+          Add to Shortlist
         </button>
       </form>
       <ul>
