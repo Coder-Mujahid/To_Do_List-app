@@ -65,12 +65,12 @@ const App = () => {
                 task.completed ? 'bg-gray-200' : 'bg-[#CDE8E5]'
               }`}
             >
-              <span className={`cursor-pointer text-ellipsis overflow-hidden basis-10/12 ${task.completed ? 'line-through' : 'animate-pulse'}`}>
+              <p className={`cursor-pointer text-clip overflow-hidden basis-10/12 ${task.completed ? 'line-through' : 'animate-pulse'}`}>
                 {task.text}
-              </span>
+              </p>
               <div className='flex flex-row justify-center gap-1 basis-2/12'>
                 <button onClick={() => toggleTaskCompletion(task.id)}>
-                <img className='md:w-6 w-4' src={task.completed ? 'deleteIcon' : "/public/img/blank-check-box (1).png"} alt="icon" />
+                <img className='md:w-6 w-4' src={task.completed ? checkIcon : blankIcon} alt="icon" />
                 </button>
                 <button onClick={() => deleteTask(task.id)} className="text-red-500">
                   <img className='md:w-6 w-4' src={deleteIcon} alt="deleteIcon" />
