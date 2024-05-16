@@ -1,6 +1,13 @@
 import './App.css';
 import { useState } from 'react';
 
+import deleteIcon from '../public/img/delete.png'
+import blankIcon from '../public/img/blank-check-box (1).png'
+import checkIcon from '../public/img/checkbox.png'
+import Icon from '../public/img/to-do-list.png'
+
+
+
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
@@ -32,7 +39,7 @@ const App = () => {
     <div className='w-11/12 m-auto text-[#000000]'>
       <div className="container flex flex-col gap-3 p-4 items-center overflow-hidden mx-auto w-full md:max-w-md mt-8 bg-[#7AB2B2] rounded-md">
         <h1 className="md:text-3xl text-xl py-2 font-semibold flex w-full justify-center items-center gap-3">
-          <img className='md:w-10 w-8' src="/public/img/to-do-list.png" alt="" />
+          <img className='md:w-10 w-8' src={Icon} alt="icon" />
           To-Do List App
         </h1>
         <form onSubmit={handleSubmit} className="mb-4 flex flex-col items-center gap-3 w-full">
@@ -63,10 +70,10 @@ const App = () => {
               </span>
               <div className='flex flex-row justify-center gap-1 basis-2/12'>
                 <button onClick={() => toggleTaskCompletion(task.id)}>
-                  <img className='md:w-6 w-4' src={task.completed ? "/public/img/checkbox.png" : "/public/img/blank-check-box (1).png"} alt="icon" />
+                <img className='md:w-6 w-4' src={task.completed ? 'deleteIcon' : "/public/img/blank-check-box (1).png"} alt="icon" />
                 </button>
                 <button onClick={() => deleteTask(task.id)} className="text-red-500">
-                  <img className='md:w-6 w-4' src="/public/img/delete.png" alt="" />
+                  <img className='md:w-6 w-4' src={deleteIcon} alt="deleteIcon" />
                 </button>
               </div>
             </li>
