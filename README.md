@@ -9,7 +9,7 @@ This is a simple and elegant to-do list application built using React. It allows
 
 <!-- Features -->
 ## Key Features
-- **Add new tasks:** Users can easily add new tasks to their to-do list.
+- **Add new tasks:** Users can easily add new tasks to their To-do list.
 - **Mark tasks as completed:** Tasks can be marked as completed by clicking on the checkbox.
 - **Delete tasks:** Users can delete tasks they no longer need.
 - **Responsive design:** The application is responsive and works seamlessly on various devices and screen sizes.
