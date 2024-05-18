@@ -17,7 +17,7 @@ This is a simple and elegant to-do list application built using React. It allows
 <!-- Technologies Used -->
 ## Technologies Used
 - **React:** The application is built using React, a popular JavaScript library for building user interfaces.
-- **CSS:** Custom styling is applied using CSS to create a visually appealing user interface.
+- **Tailwind CSS:** Custom styling is applied using CSS to create a visually appealing user interface.
 - **useState:** React's `useState` hook is used to manage state within the components.
 - **Functional Components:** The application is built using React functional components to create reusable and modular UI components.
 
