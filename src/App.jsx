@@ -1,15 +1,14 @@
 import './App.css';
 import { useState } from 'react';
+import useLocalStorage from './useLocalStorage';
 
-import deleteIcon from '../public/img/delete.png'
-import blankIcon from '../public/img/blank-check-box (1).png'
-import checkIcon from '../public/img/checkbox.png'
-import Icon from '../public/img/to-do-list.png'
-
-
+import deleteIcon from '../public/img/delete.png';
+import blankIcon from '../public/img/blank-check-box (1).png';
+import checkIcon from '../public/img/checkbox.png';
+import Icon from '../public/img/to-do-list.png';
 
 const App = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useLocalStorage('tasks', []);
   const [newTask, setNewTask] = useState('');
 
   const handleChange = (e) => {
@@ -65,8 +64,9 @@ const App = () => {
                 }`}
             >
               <p
-                title={task.completed ? ' Task is completed' : 'The task remains'}
-                className={`cursor-pointer text-clip overflow-hidden basis-10/12 ${task.completed ? 'line-through' : 'animate-pulse'}`} style={{ transition: 'none' }}
+                title={task.completed ? 'Task is completed' : 'The task remains'}
+                className={`cursor-pointer text-clip overflow-hidden basis-10/12 ${task.completed ? 'line-through' : 'animate-pulse'}`}
+                style={{ transition: 'none' }}
               >
                 {task.text}
               </p>
