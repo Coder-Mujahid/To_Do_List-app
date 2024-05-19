@@ -47,11 +47,11 @@ const App = () => {
             placeholder="Add a new task..."
             value={newTask}
             onChange={handleChange}
-            className="border-none shadow-sm shadow-slate-400 bg-[#EEF7FF] font-medium text-[#000000] text-lg rounded px-4 py-2 w-full outline-none"
+            className="border-none shadow-inner shadow-slate-400 bg-[#EEF7FF] font-medium text-[#000000] text-lg rounded px-4 py-2 w-full outline-none"
           />
           <button
             type="submit"
-            className="bg-[#4D869C] shadow-sm shadow-slate-400 text-[#000000] text-lg font-medium rounded px-4 py-2 w-full"
+            className="bg-[#4D869C] shadow-sm shadow-slate-700 text-[#000000] text-lg font-medium rounded px-4 py-2 w-full"
           >
             Add to Shortlist
           </button>
@@ -60,12 +60,12 @@ const App = () => {
           {tasks.map((task) => (
             <li
               key={task.id}
-              className={`flex items-center gap-2 w-full shadow-sm shadow-slate-400 h-auto justify-between border border-[#7AB2B2] rounded-md p-2 mb-2 ${task.completed ? 'bg-gray-200' : 'bg-[#CDE8E5]'
+              className={`flex items-center gap-2 w-full shadow-sm shadow-slate-600 h-auto justify-between border border-[#7AB2B2] rounded-md p-2 mb-2 ${task.completed ? 'bg-gray-100' : 'bg-[#bed8e4]'
                 }`}
             >
               <p
                 title={task.completed ? 'Task is completed' : 'The task remains'}
-                className={`cursor-pointer text-clip overflow-hidden basis-10/12 ${task.completed ? 'line-through' : 'animate-pulse'}`}
+                className={`cursor-pointer text-clip overflow-hidden basis-10/12 ${task.completed ? 'line-through text-black font-medium' : 'animate-pulse text-sky-700 font-semibold'}`}
                 style={{ transition: 'none' }}
               >
                 {task.text}
